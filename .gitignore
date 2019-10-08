@@ -1,8 +1,20 @@
+!.mvn
+!.mvn/*
+!.mvn/**
+!.mvn/**
+### IntelliJ IDEA ###
+
+.idea/*
+.idea/runConfigurations
+!.idea/runConfigurations/*
+.idea
+*.iws
+*.iml
+*.ipr
+*.log*
+**/.vuepress/dist/**
 /out/
 target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**
-!**/src/test/**
 
 ### STS ###
 .apt_generated
@@ -13,12 +25,6 @@ target/
 .springBeans
 .sts4-cache
 
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-*.log*
 
 ### NetBeans ###
 /nbproject/private/
@@ -32,4 +38,4 @@ build/
 .vscode/
 
 # Project exclude paths
-/docs/node_modules/
+**/node_modules/**
