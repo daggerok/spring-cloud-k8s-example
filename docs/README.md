@@ -13,7 +13,11 @@ meta:
 footer: MIT Licensed | Copyright © 2019-present Maksim Kostromin
 ---
 
-Status: In progress...
+* _DONE:_ ~~Simple sets of spring-cloud apps instalment~~
+* _DONE:_ ~~VuePress documentation as a code automation~~
+* _DONE:_ ~~Travis CI build pipelines~~
+
+Status: _IN PROGRESS_
 
 * [Travis CI Build Status](https://travis-ci.org/daggerok/spring-cloud-k8s-example)
 * [Reference GutHub Pages documentation](https://daggerok.github.io/spring-cloud-k8s-example/)
