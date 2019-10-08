@@ -14,24 +14,16 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>docs</artifactId>
     <packaging>pom</packaging>
-    
+
     <build>
-        <plugins>
-            <plugin>
-                <groupId>com.github.eirslett</groupId>
-                <artifactId>frontend-maven-plugin</artifactId>
-                <configuration><skip>true</skip></configuration>
-            </plugin>
-        </plugins>
+        <defaultGoal>initialize</defaultGoal>
     </build>
 
     <profiles>
         <profile>
             <id>build</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
             <build>
+                <defaultGoal>process-resources</defaultGoal>
                 <plugins>
                     <plugin>
                         <groupId>com.github.eirslett</groupId>
@@ -57,6 +49,7 @@
         <profile>
             <id>gh-pages</id>
             <build>
+                <defaultGoal>process-resources</defaultGoal>
                 <plugins>
                     <plugin>
                         <groupId>com.github.eirslett</groupId>

@@ -12,7 +12,12 @@ meta:
       spring-cloud eureka kubernetes k8s vuepress github github-pages
 footer: MIT Licensed | Copyright © 2019-present Maksim Kostromin
 ---
-spring cloud k8s: [![Build Status](https://travis-ci.org/daggerok/spring-cloud-k8s-example.svg?branch=master)](https://travis-ci.org/daggerok/spring-cloud-k8s-example)
+
+Status: In progress...
+
+* [Travis CI Build Status](https://travis-ci.org/daggerok/spring-cloud-k8s-example)
+* [Reference GutHub Pages documentation](https://daggerok.github.io/spring-cloud-k8s-example/)
+* [GitHub daggerok/spring-cloud-k8s-example repository](https://github.com/daggerok/spring-cloud-k8s-example/)
 
 requirements:
 

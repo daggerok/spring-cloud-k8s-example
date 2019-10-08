@@ -290,6 +290,7 @@
                         </execution>
                     </executions>
                     <configuration>
+                        <skip>true</skip>
                         <npmVersion>${frontend-maven-plugin.npmVersion}</npmVersion>
                         <nodeVersion>${frontend-maven-plugin.nodeVersion}</nodeVersion>
                         <workingDirectory>${maven.multiModuleProjectDirectory}/docs</workingDirectory>

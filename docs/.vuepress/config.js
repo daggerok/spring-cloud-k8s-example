@@ -30,12 +30,10 @@ module.exports = {
         }
     },
     plugins: [
-        'tag',
-        'category',
+        '@vuepress/blog',
         '@vuepress/back-to-top',
         '@vuepress/last-updated',
         '@vuepress/medium-zoom',
-        '@vuepress/nprogress',
         '@vuepress/nprogress',
     ],
 };

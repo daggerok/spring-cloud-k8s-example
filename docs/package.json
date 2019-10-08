@@ -20,6 +20,9 @@
   },
   "homepage": "https://github.com/daggerok/spring-cloud-k8s-example#readme",
   "devDependencies": {
+    "@vuepress/plugin-back-to-top": "1.1.0",
+    "@vuepress/plugin-blog": "1.3.0",
+    "@vuepress/plugin-medium-zoom": "1.1.0",
     "cross-env": "6.0.3",
     "markdown-it-vuepress-code-snippet-enhanced": "1.0.1",
     "vuepress": "1.1.0"

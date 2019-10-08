@@ -10,7 +10,11 @@ git:
 language: java
 jdk: openjdk8
 node_js: lts/*
-python: 3
+python:
+  - "3.7"
+matrix:
+  include:
+    - python: "3.7"
 #service:
 #  - docker
 addons:
@@ -24,10 +28,6 @@ addons:
       - bash
       - curl
       - unzip
-      - python3-dev
-      - python3-pip
-      - python3-six
-      - python3-setuptools
 #      - docker-ce
 #      - libxml2-utils
 #      - libappindicator1
@@ -36,13 +36,7 @@ addons:
 install: true
 before_install:
   #- export DISPLAY=:99.0
-#  ##
-#  - docker-compose -v
-#  - export PATH=$HOME/.local/bin:$PATH
-#  - pip3 install --user $(whoami) --upgrade pip >/dev/null # pip3 -> pip
-#  - pip install --user $(whoami) --upgrade docker-compose httpie >/dev/null 2>&1
-#  - http --version --debug
-#  - docker-compose -v
+  #
   #- source <(curl -s https://raw.githubusercontent.com/daggerok/bash-functions/master/main.bash)
   - |
     if [ ! -f ${HOME}/.local/daggerok/bash-functions/master/main.bash ] ; then
@@ -51,15 +45,21 @@ before_install:
     fi
     source ${HOME}/.local/daggerok/bash-functions/master/main.bash ;
   - stop_any 80 8080 9000
-  - |
-    if [[ ! -f ${HOME}/.local/bin/docker-compose ]] ; then
-      mkdir -p ${HOME}/.local/bin ;
-      rm -rf ${HOME}/.local/bin/docker-compose ;
-      curl -L https://github.com/docker/compose/releases/download/1.25.0-rc2/docker-compose-`uname -s`-`uname -m` -o ${HOME}/.local/bin/docker-compose ;
-      chmod +x ${HOME}/.local/bin/docker-compose ;
-      export PATH=${HOME}/.local/bin:${PATH} ;
-      docker-compose -v ;
-    fi
+  - mkdir -p ${HOME}/.local/bin
+  - export PATH=${HOME}/.local/bin:${PATH}
+#  - |
+#    if [[ ! -f ${HOME}/.local/bin/docker-compose ]] ; then
+#      rm -rf ${HOME}/.local/bin/docker-compose ;
+#      curl -L https://github.com/docker/compose/releases/download/1.25.0-rc2/docker-compose-`uname -s`-`uname -m` -o ${HOME}/.local/bin/docker-compose ;
+#      chmod +x ${HOME}/.local/bin/docker-compose ;
+#    fi
+  - python3 -V
+  - pip -V
+  - pip install --user --upgrade pip
+  - pip -V
+  - pip install --user --upgrade docker-compose httpie mkdocs mkdocs-material mkdocs-minify-plugin
+  - docker-compose version
+  - http --version
   - stop_any 80 8001 8002 8080 5432
 stages:
   - test
