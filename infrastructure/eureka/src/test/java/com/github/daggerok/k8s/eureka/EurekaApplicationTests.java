@@ -1,4 +1,4 @@
-package com.github.daggerok.k8s.product;
+package com.github.daggerok.k8s.eureka;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

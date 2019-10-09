@@ -23,7 +23,7 @@ Status: _IN PROGRESS_
 * [Reference GutHub Pages documentation](https://daggerok.github.io/spring-cloud-k8s-example/)
 * [GitHub daggerok/spring-cloud-k8s-example repository](https://github.com/daggerok/spring-cloud-k8s-example/)
 
-requirements:
+Requirements:
 
 * [_jar_](./jar/README.md) requires git and jdk 8 installed
 * [_mvn_](./mvn/README.md) requires maven (3.6.2)

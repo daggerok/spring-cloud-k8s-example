@@ -7,12 +7,12 @@ Run Spring Cloud apps in Kubernetes
 
 _Roadmap:_
 
-* _TODO: _ Guidelines for local `jar` and `maven` run / test / development
+* _TODO:_ Guidelines for local `jar` and `maven` run / test / development
 <!--
-* _TODO: _ Guidelines for OAuth2 + JWT implementation
+* _TODO:_ Guidelines for OAuth2 + JWT implementation
 -->
-* _TODO: _ Docker guidelines + `docker-compose-maven-plugin` + some `e2e` testing
-* _TODO: _ Kubernetes guidelines + `ingress` expose solution + `kafka` or `postgres` clustering
+* _TODO:_ Docker guidelines + `docker-compose-maven-plugin` + some `e2e` testing
+* _TODO:_ Kubernetes guidelines + `ingress` expose solution + `kafka` or `postgres` clustering
 
 Status: _IN PROGRESS_
 

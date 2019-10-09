@@ -11,9 +11,16 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <name>${project.artifactId}:${project.parent.version}</name>
+    <name>${project.artifactId}</name>
     <artifactId>product</artifactId>
     <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
