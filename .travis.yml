@@ -11,16 +11,12 @@ language: java
 jdk: openjdk8
 node_js: lts/*
 python: 3.7
-matrix:
-  include:
-    - python: 3.7
 #service:
 #  - docker
 addons:
   apt:
     update: true
     packages:
-      - jq
       - sudo
       - lsof
       - wget
@@ -35,33 +31,28 @@ addons:
 #      - google-chrome-stable
 install: true
 before_install:
-  #- export DISPLAY=:99.0
-  #
-  #- source <(curl -s https://raw.githubusercontent.com/daggerok/bash-functions/master/main.bash)
-  - |
-    if [ ! -f ${HOME}/.local/daggerok/bash-functions/master/main.bash ] ; then
-      mkdir -p ${HOME}/.local/daggerok/bash-functions/master ;
-      curl -s https://raw.githubusercontent.com/daggerok/bash-functions/master/main.bash > ${HOME}/.local/daggerok/bash-functions/master/main.bash ;
-    fi
-    source ${HOME}/.local/daggerok/bash-functions/master/main.bash ;
-  - stop_any 80 8080 9000 8001 8002 8080 5432
-before_script:
-  - mkdir -p ${HOME}/.local/bin
-  - export PATH=${HOME}/.local/bin:${PATH}
+  - mkdir -p ~/.local/bin
   #  - |
   #    if [[ ! -f ${HOME}/.local/bin/docker-compose ]] ; then
   #      rm -rf ${HOME}/.local/bin/docker-compose ;
   #      curl -L https://github.com/docker/compose/releases/download/1.25.0-rc2/docker-compose-`uname -s`-`uname -m` -o ${HOME}/.local/bin/docker-compose ;
   #      chmod +x ${HOME}/.local/bin/docker-compose ;
   #    fi
-  #- python -V
-  #- python3 -V
-  #- pip3 -V
-  #- echo "pip path:\ $(which pip) ; pip3 path:\ $(which pip3)"
-  - python3 -m pip install --upgrade --user pip setuptools
-  - python3 -m pip install --upgrade --user docker-compose httpie mkdocs mkdocs-material mkdocs-minify-plugin
-  - docker-compose version
-  - http --version
+  - export ~/.local/bin:${PATH}
+  #- python3 -m pip install --upgrade --user pip setuptools
+  - pip3 install --user --upgrade pip setuptools
+  #- pip install --user --upgrade httpie docker-compose
+  #- python3 -m pip install --upgrade --user docker-compose httpie mkdocs mkdocs-material mkdocs-minify-plugin
+  - pip install --user --upgrade httpie mkdocs mkdocs-material mkdocs-minify-plugin
+  #- export DISPLAY=:99.0
+  #- source <(curl -s https://raw.githubusercontent.com/daggerok/bash-functions/master/main.bash)
+  - |
+    if [ ! -f ~/.local/daggerok/bash-functions/master/main.bash ] ; then
+      mkdir -p ~/.local/daggerok/bash-functions/master ;
+      curl -s https://raw.githubusercontent.com/daggerok/bash-functions/master/main.bash > ~/.local/daggerok/bash-functions/master/main.bash ;
+    fi
+    source ~/.local/daggerok/bash-functions/master/main.bash ;
+  - stop_any 80 8080 9000 8001 8002 8080 5432
 stages:
   - test
   - deploy
@@ -74,18 +65,18 @@ jobs:
         - cd $TRAVIS_BUILD_DIR && ./mvnw
         - bash $TRAVIS_BUILD_DIR/infrastructure/eureka/target/eureka-*.jar &
         - wait_for 8761
-        - http :8761/actuator        | jq '.'
+        - http :8761/actuator
         - http :8761/eureka/apps
         - bash $TRAVIS_BUILD_DIR/apps/product/target/product-*.jar &
         - wait_for 8080
-        - http :8080/actuator/health | jq '.'
+        - http :8080/actuator/health
         - http :8761/eureka/apps/
         - http :8761/eureka/apps/product
         - http :8761/eureka/vips/product
         - http :8761/eureka/svips/product
-        - http :8080                 | jq '.'
-        - http :8080\?page=3\&size=2 | jq '.'
-        - http :8080\?page=2\&size=2 | jq '.'
+        - http :8080
+        - http :8080\?page=3\&size=2
+        - http :8080\?page=2\&size=2
         - http :8080
         - stop_any 80 8080 8761
     - stage: deploy
