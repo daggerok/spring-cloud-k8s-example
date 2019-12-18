@@ -24,6 +24,7 @@ addons:
       - curl
       - unzip
       - python3-pip
+      - python3-setuptools
 #      - docker-ce
 #      - libxml2-utils
 #      - libappindicator1
@@ -40,7 +41,8 @@ before_install:
   - mkdir -p ~/.local/bin
   - export PATH="${HOME}/.local/bin:${PATH}"
   #- python3 -m pip install --upgrade --user pip setuptools
-  - pip3 install --user --upgrade pip setuptools
+  - pip install --upgrade --user pip setuptools
+  - pip3 install --upgrade --user pip setuptools
   #- pip install --user --upgrade httpie docker-compose
   #- python3 -m pip install --upgrade --user docker-compose httpie mkdocs mkdocs-material mkdocs-minify-plugin
   - pip install --user --upgrade httpie mkdocs mkdocs-material mkdocs-minify-plugin
